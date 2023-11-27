@@ -11,7 +11,26 @@ const TextForm = (props) => {
       setText(newText);
 
     }
-    
+
+    const hendleLowerCase = () =>{
+      console.log('Click The Lower Case' + text)
+      let NewText = text.toLowerCase();
+      setText(NewText)
+    }
+
+    const hendleCamelCase = () =>{
+      // console.log('Click The Camel Case')
+      let words = text.toLowerCase().split(" ");
+      for(let i=1 ; i<words.length; i++){
+        let firstChar = words[i].slice(0,1);
+          firstChar = firstChar.toUpperCase();
+        let CamelCase = firstChar + words[i].slice(1);
+        words[i] = CamelCase;
+      }
+      let camelString  = words.join("");
+      setText(camelString);
+    }
+     
     const handleOnChange = (event) =>{
       console.log('On Change')
       setText(event.target.value)
@@ -31,6 +50,9 @@ const TextForm = (props) => {
             </div>
 
             <button type="" className='btn btn-primary' onClick={clickon}>Convert To UpperCase</button>
+            <button type="" className='btn btn-primary ms-5' onClick={hendleLowerCase}>Convert To UpperCase</button>
+            <button type="" className='btn btn-primary ms-5' onClick={hendleCamelCase}>Convert To UpperCase</button>
+
  
              </div>
             </div>            
